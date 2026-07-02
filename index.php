@@ -681,7 +681,7 @@ vertical-align: middle;
         <div class="form-container mx-auto bg-white p-4 p-md-5 rounded-4 shadow-lg" style="max-width: 850px; border: none;">
 
             <h3 class="fw-bold text-center text-dark mb-1" style="font-size: 1.85rem;">Claim Your Free Seat</h3>
-            <p class="text-muted text-center small mb-4" style="font-size: 0.9rem;">Live Masterclass. Limited spots available to ensure quality Q&amp;A.</p>
+            <p class="text-muted text-center small mb-4" style="font-size: 0.9rem;">Limited spots available to ensure quality Q&amp;A.</p>
 
             <?php if (!empty($error)): ?>
                 <div class="alert alert-danger py-2 text-center small border-0 rounded-3 mb-4" role="alert">
@@ -811,7 +811,7 @@ vertical-align: middle;
         <!-- Submit -->
         <div class="col-12 text-center mt-2">
             <button type="submit" class="btn btn-theme-red py-2 fw-semibold shadow-sm w-100 w-md-auto">
-                Secure My Masterclass Access
+                Sign me up
             </button>
 
             <p class="text-center text-muted mt-3 mb-0 d-flex align-items-center justify-content-center gap-1" style="font-size:0.8rem;color:#64748b !important;">
