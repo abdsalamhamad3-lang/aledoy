@@ -694,65 +694,136 @@ vertical-align: middle;
                     <strong>Success:</strong> <?php echo htmlspecialchars($success); ?>
                 </div>
             <?php endif; ?>
+<form action="proc-contact.php" method="POST">
+    <div class="row g-4">
 
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                <div class="row g-4">
+        <!-- Full Name -->
+        <div class="col-12 col-md-6">
+            <label for="fullName" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">
+                Full Name
+            </label>
+            <input
+                type="text"
+                class="form-control bg-white py-2 px-3"
+                id="fullName"
+                name="full_name"
+                placeholder="John Doe"
+                style="border:1px solid #cbd5e1; border-radius:6px;"
+                required>
+        </div>
 
-                    <div class="col-12 col-md-6">
-                        <label for="fullName" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">Full Name</label>
-                        <input type="text" class="form-control bg-white py-2 px-3" id="fullName" name="full_name" placeholder="John Doe" style="border: 1px solid #cbd5e1; border-radius: 6px;" value="<?php echo isset($Name) ? htmlspecialchars($Name) : ''; ?>" required>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label for="email" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">Work Email Address</label>
-                        <input type="email" class="form-control bg-white py-2 px-3" id="email" name="email" placeholder="john.doe@company.com" style="border: 1px solid #cbd5e1; border-radius: 6px;" value="<?php echo isset($Email) ? htmlspecialchars($Email) : ''; ?>" required>
-                    </div>
+        <!-- Email -->
+        <div class="col-12 col-md-6">
+            <label for="email" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">
+                Work Email Address
+            </label>
+            <input
+                type="email"
+                class="form-control bg-white py-2 px-3"
+                id="email"
+                name="email"
+                placeholder="john.doe@company.com"
+                style="border:1px solid #cbd5e1; border-radius:6px;"
+                required>
+        </div>
 
-                    <div class="col-12 col-md-6">
-                        <label for="phone" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">Phone Number</label>
-                        <input type="tel" class="form-control bg-white py-2 px-3" id="phone" name="phone" placeholder="08031234567" style="border: 1px solid #cbd5e1; border-radius: 6px;" value="<?php echo isset($Phone) ? htmlspecialchars($Phone) : ''; ?>" required>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label for="ageRange" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">Age Range</label>
-                        <select class="form-select bg-white py-2 px-3" id="ageRange" name="age_range" style="border: 1px solid #cbd5e1; border-radius: 6px; color: #475569;" required>
-                            <option value="35-40" <?php echo (isset($AgeRange) && $AgeRange == '35-40') ? 'selected' : ''; ?>>35-40</option>
-                            <option value="41-50" <?php echo (isset($AgeRange) && $AgeRange == '41-50') ? 'selected' : ''; ?>>41-50</option>
-                            <option value="50+" <?php echo (isset($AgeRange) && $AgeRange == '50+') ? 'selected' : ''; ?>>50+</option>
-                        </select>
-                    </div>
+        <!-- Phone -->
+        <div class="col-12 col-md-6">
+            <label for="phone" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">
+                Phone Number
+            </label>
+            <input
+                type="tel"
+                class="form-control bg-white py-2 px-3"
+                id="phone"
+                name="phone"
+                placeholder="08031234567"
+                style="border:1px solid #cbd5e1; border-radius:6px;"
+                required>
+        </div>
 
-                    <div class="col-12 col-md-6">
-                        <label for="country" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">Country</label>
-                        <input type="text" class="form-control bg-white py-2 px-3" id="country" name="country" placeholder="Nigeria" style="border: 1px solid #cbd5e1; border-radius: 6px;" value="<?php echo isset($Country) ? htmlspecialchars($Country) : ''; ?>" required>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label for="city" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">City</label>
-                        <input type="text" class="form-control bg-white py-2 px-3" id="city" name="city" placeholder="Lagos" style="border: 1px solid #cbd5e1; border-radius: 6px;" value="<?php echo isset($City) ? htmlspecialchars($City) : ''; ?>" required>
-                    </div>
+        <!-- Age Range -->
+        <div class="col-12 col-md-6">
+            <label for="ageRange" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">
+                Age Range
+            </label>
+            <select
+                class="form-select bg-white py-2 px-3"
+                id="ageRange"
+                name="age_range"
+                style="border:1px solid #cbd5e1; border-radius:6px;"
+                required>
+                <option value="">Select Age Range</option>
+                <option value="35-40">35-40</option>
+                <option value="41-50">41-50</option>
+                <option value="50+">50+</option>
+            </select>
+        </div>
 
-                    <div class="col-12">
-                        <label for="careerGoal" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">Primary Career Goal</label>
-                        <select class="form-select bg-white py-2 px-3" id="careerGoal" name="career_goal" style="border: 1px solid #cbd5e1; border-radius: 6px; color: #475569;" required>
-                            <option value="increase_income" <?php echo (isset($CareerGoal) && $CareerGoal == 'increase_income') ? 'selected' : ''; ?>>Increase Income</option>
-                            <option value="change_industry" <?php echo (isset($CareerGoal) && $CareerGoal == 'change_industry') ? 'selected' : ''; ?>>Change Industry</option>
-                            <option value="learn_skills" <?php echo (isset($CareerGoal) && $CareerGoal == 'learn_skills') ? 'selected' : ''; ?>>Learn New Skills</option>
-                        </select>
-                    </div>
+        <!-- Country -->
+        <div class="col-12 col-md-6">
+            <label for="country" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">
+                Country
+            </label>
+            <input
+                type="text"
+                class="form-control bg-white py-2 px-3"
+                id="country"
+                name="country"
+                placeholder="Nigeria"
+                style="border:1px solid #cbd5e1; border-radius:6px;"
+                required>
+        </div>
 
-                    <div class="col-12 text-center mt-2">
-                        <button type="submit" class="btn btn-theme-red py-2 fw-semibold shadow-sm w-100 w-md-auto">
-                            Secure My Masterclass Access
-                        </button>
+        <!-- City -->
+        <div class="col-12 col-md-6">
+            <label for="city" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">
+                City
+            </label>
+            <input
+                type="text"
+                class="form-control bg-white py-2 px-3"
+                id="city"
+                name="city"
+                placeholder="Lagos"
+                style="border:1px solid #cbd5e1; border-radius:6px;"
+                required>
+        </div>
 
-                        <p class="text-center text-muted mt-3 mb-0 d-flex align-items-center justify-content-center gap-1" style="font-size: 0.8rem; color: #64748b !important;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
-                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-                            </svg>
-                            Your data is safe. We never sell your information.
-                        </p>
-                    </div>
+        <!-- Career Goal -->
+        <div class="col-12">
+            <label for="careerGoal" class="form-label fw-semibold text-dark mb-1" style="font-size: 0.85rem;">
+                Primary Career Goal
+            </label>
+            <select
+                class="form-select bg-white py-2 px-3"
+                id="careerGoal"
+                name="career_goal"
+                style="border:1px solid #cbd5e1; border-radius:6px;"
+                required>
+                <option value="">Select Your Goal</option>
+                <option value="increase_income">Increase Income</option>
+                <option value="change_industry">Change Industry</option>
+                <option value="learn_skills">Learn New Skills</option>
+            </select>
+        </div>
 
-                </div>
-            </form>
+        <!-- Submit -->
+        <div class="col-12 text-center mt-2">
+            <button type="submit" class="btn btn-theme-red py-2 fw-semibold shadow-sm w-100 w-md-auto">
+                Secure My Masterclass Access
+            </button>
+
+            <p class="text-center text-muted mt-3 mb-0 d-flex align-items-center justify-content-center gap-1" style="font-size:0.8rem;color:#64748b !important;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                </svg>
+                Your data is safe. We never sell your information.
+            </p>
+        </div>
+
+    </div>
+</form>
         </div>
     </div>
 </section>
