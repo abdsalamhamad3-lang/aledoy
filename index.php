@@ -643,7 +643,7 @@ vertical-align: middle;
 
                 <div class="col-12 col-md-4 text-center">
                     <div class="trainer-img-wrapper-outer position-relative d-inline-block rounded-4 shadow-lg overflow-hidden mx-auto" style="width: 100%; max-width: 280px; aspect-ratio: 1/1; border: 0px solid #ffc107; background: linear-gradient(to bottom, #ffc107, #bfa15f);">
-                        <img src="dist/images/passport.png" alt="Lu Abikoye" class="w-100 h-100 object-fit-cover d-block">
+                        <img src="dist/images/passport.jpeg" alt="Lu Abikoye" class="w-100 h-100 object-fit-cover d-block">
 
                         <div class="position-absolute bottom-0 start-0 w-100 text-start p-3" style="background: linear-gradient(transparent, rgba(0,0,0,0.75));">
                             <h5 class="text-white fw-bold mb-0">Lu Abikoye</h5>
