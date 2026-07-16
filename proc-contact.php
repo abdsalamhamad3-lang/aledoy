@@ -5,6 +5,8 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+include('token.php');
+
 // Retrieve form inputs
 $Name       = trim($_POST['full_name'] ?? '');
 $Email      = trim($_POST['email'] ?? '');
@@ -122,7 +124,42 @@ try {
         fclose($file);
     }
 
-    $success = 'Your seat has been reserved successfully! Check your email for access instructions.';
+    //push data to maillite
+
+    $curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://connect.mailerlite.com/api/subscribers',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_POSTFIELDS =>'{
+    "email": "'.$Email.'",
+    "fields": {
+      "name": "'.$firstname.'",
+      "last_name": "'.$lastname.'"
+    }
+}',
+  CURLOPT_HTTPHEADER => array(
+    'Content-Type: application/json',
+    'Authorization: Bearer '.$api_key
+  ),
+));
+
+$response = curl_exec($curl);
+
+// echo $response; exit;
+
+curl_close($curl);
+
+
+    $success = 'Your seat has been reserved successfully!';
+
+
 } catch (Exception $e) {
     // DB record is already saved even if email fails
     $success = 'Your seat has been reserved successfully! (Confirmation email could not be sent.)';
