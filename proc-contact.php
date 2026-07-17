@@ -39,6 +39,12 @@ if ($num_check != 11) {
     exit;
 }
 
+
+$names = explode(' ', $Name);
+$firstname = $names[0];
+$lastname = isset($names[1]) ? $names[1] : '';
+
+
 // ---- Database connection ----
 $dbHost = 'localhost';
 $dbName = 'aledusbx_tech_after';
